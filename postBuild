@@ -1,0 +1,19 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2021 Roland Csaszar
+#
+# Project:  TzolkinWaves
+# File:     postBuild
+# Date:     07.May.2021
+###############################################################################
+# script to set up the F#, C# and PowerShell Jupyter Kernels for myBinder
+
+wget https://dot.net/v1/dotnet-install.sh
+chmod 755 dotnet-install.sh
+./dotnet-install.sh -c Current
+~/.dotnet/dotnet tool install Microsoft.dotnet-interactive
+~/.dotnet/dotnet interactive jupyter install
+
+sed -i 's@"dotnet"@"'${HOME}'/.dotnet/dotnet"@'  ~/.local/share/jupyter/kernels/.net-csharp/kernel.json
+sed -i 's@"dotnet"@"'${HOME}'/.dotnet/dotnet"@'  ~/.local/share/jupyter/kernels/.net-fsharp/kernel.json
+sed -i 's@"dotnet"@"'${HOME}'/.dotnet/dotnet"@'  ~/.local/share/jupyter/kernels/.net-powershell/kernel.json

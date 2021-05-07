@@ -1,0 +1,30 @@
+source https://api.nuget.org/v3/index.json
+storage: none
+
+group Tests
+	source https://api.nuget.org/v3/index.json
+	storage none
+	framework: net5.0
+
+	nuget FSharp.Core >= 5.0.1
+
+	nuget AltCover
+	nuget Expecto
+	nuget Expecto.FsCheck
+	nuget Unquote
+	nuget YoloDev.Expecto.TestSdk
+	nuget Microsoft.NET.Test.Sdk
+
+group Avalonia
+	source https://api.nuget.org/v3/index.json
+	framework net5.0
+	storage none
+	
+	nuget FSharp.Core >= 5.0.1
+	nuget Avalonia.Desktop > 0.9.7
+	nuget JaggerJo.Avalonia.FuncUI  >= 0.5.0-beta
+	nuget JaggerJo.Avalonia.FuncUI.DSL >= 0.5.0-beta
+	nuget JaggerJo.Avalonia.FuncUI.Elmish >= 0.5.0-beta
+	nuget Tzolkin
+	nuget NineWaves
+	nuget LunaZodiaco

@@ -1,0 +1,98 @@
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2021 Roland Csaszar
+#
+# Project:  TzolkinWaves
+# File:     osx_test.yml
+#
+################################################################################
+
+name: Tests Mac OS X latest
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_run:
+    workflows: ["Nuget Packages"]
+    types: [completed]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  tests-coverage:
+    runs-on: macos-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - name: Setup Tools
+        run: |
+          dotnet tool restore
+          dotnet paket restore
+
+      - name: Run Tests
+        run: |
+          cd $GITHUB_WORKSPACE
+          dotnet fake run ./build.fsx target TestsCoverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        if: ${{ always() }}
+        with:
+          token: ${{ secrets.CODECOV_SECRET }}
+          files: ./test_results/coverage.xml
+          directory: ./coverage/reports/
+          # flags: unittest
+          env_vars: OS,PYTHON
+          name: OSX-Test-Src
+          fail_ci_if_error: false
+          path_to_write_report: ./coverage/codecov_report.txt
+          verbose: true
+
+  tests:
+    runs-on: macos-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - name: Setup Tools
+        run: |
+          dotnet tool restore
+          dotnet paket restore
+
+      - name: Publish Tests
+        run: |
+          cd $GITHUB_WORKSPACE
+          dotnet fake run ./build.fsx target Publish
+
+      - name: Run Tests
+        run: |
+          cd $GITHUB_WORKSPACE
+          dotnet ./bin/TestTzolkinWaves.dll --summary --nunit-summary ./test_results/nresult.xml --junit-summary ./test_results/jresult.xml
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: Test Results
+          path: ./test_results/*.xml
+
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        if: always()
+        with:
+          files: ./test_results/jresult.xml

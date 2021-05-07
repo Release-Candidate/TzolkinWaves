@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "dotnet-fsharplint": {
+      "version": "0.18.1",
+      "commands": [
+        "dotnet-fsharplint"
+      ]
+    },
+    "fantomas-tool": {
+      "version": "4.4.0",
+      "commands": [
+        "fantomas"
+      ]
+    },
+    "fabulous-cli": {
+      "version": "1.0.0",
+      "commands": [
+        "fabulous"
+      ]
+    },
+    "altcover.visualizer": {
+      "version": "8.1.819",
+      "commands": [
+        "altcover.visualizer"
+      ]
+    },
+    "paket": {
+      "version": "5.257.0",
+      "commands": [
+        "paket"
+      ]
+    },
+    "fake-cli": {
+      "version": "5.20.4",
+      "commands": [
+        "fake"
+      ]
+    }
+  }
+}
