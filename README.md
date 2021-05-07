@@ -4,11 +4,14 @@ This cross platform - Linux, Mac OS X and Windows - F# .Net
 
 Full documentation can be found at [Read the Docs](https://TzolkinWaves.readthedocs.io/en/latest/)
 
+Uses [Avalonia FuncUI](https://github.com/fsprojects/Avalonia.FuncUI) as MVU (Elm-style) API to the [Avalonia](https://avaloniaui.net/) cross platform GUI toolkit.
+
+Uses the NuGet packages [Tzolkin](https://github.com/Release-Candidate/Tzolkin), [NineWaves](https://github.com/Release-Candidate/NineWaves) and [LunaZodiaco](https://github.com/Release-Candidate/LunaZodiaco).
+
 ![MIT license badge](https://img.shields.io/badge/license-MIT-brightgreen?style=flat)
 [![F# 5.0 badge](https://img.shields.io/badge/F%23-5.0-brightgreen?style=flat)](https://fsharp.org/)
-[![OS badge](https://img.shields.io/badge/Runs%20on-Linux%7COS%20X%7CWindows%7CAndroid%7CIOS-brightgreen?style=flat)](https://dotnet.microsoft.com/download)
-[![Documentation Status](https://readthedocs.org/projects/TzolkinWaves/badge/?version=latest)](https://TzolkinWaves.readthedocs.io/en/latest/?badge=latest)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Release-Candidate/TzolkinWaves/main?filepath=TzolkinWaves.ipynb)
+[![OS badge](https://img.shields.io/badge/Runs%20on-Linux%7COS%20X%7CWindows-brightgreen?style=flat)](https://dotnet.microsoft.com/download)
+[![Documentation Status](https://readthedocs.org/projects/tzolkinwaves/badge/?version=latest)](https://tzolkinwaves.readthedocs.io/en/latest/?badge=latest)
 [more badges ...](#badges)
 
 ## Table of Content <!-- omit in toc -->

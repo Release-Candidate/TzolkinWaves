@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "TzolkinWaves", "src\TzolkinWaves\TzolkinWaves.fsproj", "{BEB0AD49-DA01-4263-A6C4-45D03BFB341C}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "TestTzolkinWaves", "tests\TestTzolkinWaves\TestTzolkinWaves.fsproj", "{B7CE08B9-79CF-49D9-844C-BE010615B2CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEB0AD49-DA01-4263-A6C4-45D03BFB341C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB0AD49-DA01-4263-A6C4-45D03BFB341C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB0AD49-DA01-4263-A6C4-45D03BFB341C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB0AD49-DA01-4263-A6C4-45D03BFB341C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CE08B9-79CF-49D9-844C-BE010615B2CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CE08B9-79CF-49D9-844C-BE010615B2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CE08B9-79CF-49D9-844C-BE010615B2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CE08B9-79CF-49D9-844C-BE010615B2CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A02AAB7-BAE1-406B-A9F0-68B607C0C175}
+	EndGlobalSection
+EndGlobal
