@@ -1,11 +1,12 @@
 group Avalonia
 	FSharp.Core
 
-	Avalonia.Desktop
-	JaggerJo.Avalonia.FuncUI
-	JaggerJo.Avalonia.FuncUI.DSL
-	JaggerJo.Avalonia.FuncUI.Elmish
-	
 	Tzolkin
 	NineWaves
 	LunaZodiaco
+
+	Avalonia.Desktop
+	Avalonia.Svg.Skia
+	JaggerJo.Avalonia.FuncUI
+	JaggerJo.Avalonia.FuncUI.DSL
+	JaggerJo.Avalonia.FuncUI.Elmish

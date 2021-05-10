@@ -1,5 +1,6 @@
 source https://api.nuget.org/v3/index.json
 storage: none
+nuget Avalonia.Svg.Skia
 
 group Tests
 	source https://api.nuget.org/v3/index.json
@@ -22,6 +23,7 @@ group Avalonia
 
 	nuget FSharp.Core >= 5.0.1
 	nuget Avalonia.Desktop > 0.10
+	nuget Avalonia.Svg.Skia
 	nuget JaggerJo.Avalonia.FuncUI  >= 0.5.0-beta
 	nuget JaggerJo.Avalonia.FuncUI.DSL >= 0.5.0-beta
 	nuget JaggerJo.Avalonia.FuncUI.Elmish >= 0.5.0-beta
