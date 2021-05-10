@@ -54,7 +54,7 @@ let coverageProjs = testProjs
 let packageProjs = []
 
 // projects to publish (`dotnet publish`)
-let publishProjs = !! "src/**/*.*proj" //++ "tests/**/*.*proj"
+let publishProjs = !! "src/**/*.*proj" ++ "tests/**/*.*proj"
 
 // projects that should be linted
 let lintProjs =

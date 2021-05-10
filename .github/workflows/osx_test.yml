@@ -14,7 +14,7 @@ on:
   push:
     branches: [master]
   pull_request:
-    branches: [mamasterin]
+    branches: [master]
   workflow_run:
     workflows: ["Nuget Packages"]
     types: [completed]
