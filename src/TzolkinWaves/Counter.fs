@@ -14,15 +14,15 @@ module Counter =
     open Avalonia.FuncUI.DSL
     open Avalonia.Layout
 
-    type State = { count : int }
-    let init = { count = 0 }
+    type State = { Count : int }
+    let init = { Count = 0 }
 
     type Msg = Increment | Decrement | Reset
 
     let update (msg: Msg) (state: State) : State =
         match msg with
-        | Increment -> { state with count = state.count + 1 }
-        | Decrement -> { state with count = state.count - 1 }
+        | Increment -> { state with Count = state.Count + 1 }
+        | Decrement -> { state with Count = state.Count - 1 }
         | Reset -> init
 
     let view (state: State) (dispatch) =
@@ -55,7 +55,7 @@ module Counter =
                     TextBlock.fontSize 48.0
                     TextBlock.verticalAlignment VerticalAlignment.Center
                     TextBlock.horizontalAlignment HorizontalAlignment.Center
-                    TextBlock.text (string state.count)
+                    TextBlock.text (string state.Count)
                 ]
             ]
         ]

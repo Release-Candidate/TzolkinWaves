@@ -23,7 +23,7 @@ module About =
 
 
     type State =
-        { noop: bool }
+        { Noop: bool }
 
     type Links =
         | AvaloniaRepository
@@ -37,7 +37,7 @@ module About =
 
     type Msg = OpenUrl of Links
 
-    let init = { noop = false }, Cmd.none
+    let init = { Noop = false }, Cmd.none
 
 
     let update (msg: Msg) (state: State) =

@@ -1,12 +1,12 @@
 # ![TzolkinWaves Icon](./nuget_icon.png) TzolkinWaves <!-- omit in toc -->
 
-This cross platform - Linux, Mac OS X and Windows - F# .Net
+This F# cross platform - Linux, Mac OS X and Windows - program that uses Avalonia.FuncUI as the MVU (Elm style) API wrapper for the Avalonia .Net GUI Toolkit. It uses the NuGet packages Tzolkin, NineWaves and LunaZodiaco to display the Maya Tzolkʼin date, Calleman's nine Maya waves and the moon phase and moon zodiac of a given date.
 
 Full documentation can be found at [Read the Docs](https://TzolkinWaves.readthedocs.io/en/latest/)
 
 Uses [Avalonia FuncUI](https://github.com/fsprojects/Avalonia.FuncUI) as MVU (Elm-style) API to the [Avalonia](https://avaloniaui.net/) cross platform GUI toolkit.
 
-Uses the NuGet packages [Tzolkin](https://github.com/Release-Candidate/Tzolkin), [NineWaves](https://github.com/Release-Candidate/NineWaves) and [LunaZodiaco](https://github.com/Release-Candidate/LunaZodiaco).
+Uses the NuGet packages [Tzolkin](https://github.com/Release-Candidate/Tzolkin) - [NuGet Package Tzolkin](https://www.nuget.org/packages/Tzolkin/), [NineWaves](https://github.com/Release-Candidate/NineWaves) - [NuGet Package NineWaves](https://www.nuget.org/packages/NineWaves/) and [LunaZodiaco](https://github.com/Release-Candidate/LunaZodiaco) - [NuGet Package LunaZodiaco](https://www.nuget.org/packages/LunaZodiaco/).
 
 ![MIT license badge](https://img.shields.io/badge/license-MIT-brightgreen?style=flat)
 [![F# 5.0 badge](https://img.shields.io/badge/F%23-5.0-brightgreen?style=flat)](https://fsharp.org/)
@@ -17,6 +17,7 @@ Uses the NuGet packages [Tzolkin](https://github.com/Release-Candidate/Tzolkin),
 ## Table of Content <!-- omit in toc -->
 
 - [Links](#links)
+  - [Own Libraries used](#own-libraries-used)
 - [Download](#download)
 - [Installation and Usage](#installation-and-usage)
 - [Contributing](#contributing)
@@ -28,7 +29,21 @@ Uses the NuGet packages [Tzolkin](https://github.com/Release-Candidate/Tzolkin),
 
 ## Links
 
+(Functional) programming language: [F#](https://fsharp.org/)
 
+Cross platform framework (yes, really!): [.Net](https://dotnet.microsoft.com/download)
+
+MVU - [Elm](https://elm-lang.org/) style - GUI Wrapper: [Avalonia FuncUI](https://github.com/fsprojects/Avalonia.FuncUI)
+
+Cross platform GUI Toolkit: [Avalonia](https://avaloniaui.net/)
+
+### Own Libraries used
+
+To convert and calculate with Maya Tzolkʼin dates: [Tzolkin](https://github.com/Release-Candidate/Tzolkin) [NuGet Package Tzolkin](https://www.nuget.org/packages/Tzolkin/)
+
+To display information about and graphs of Carl Johan Calleman's nine Maya waves: [NineWaves](https://github.com/Release-Candidate/NineWaves) [NuGet Package NineWaves](https://www.nuget.org/packages/NineWaves/)
+
+To display the moon phase and lunar zodiac for a given date: [LunaZodiaco](https://github.com/Release-Candidate/LunaZodiaco) [NuGet Package LunaZodiaco](https://www.nuget.org/packages/LunaZodiaco/)
 
 ## Download
 
@@ -50,7 +65,7 @@ See page [Contributing](https://TzolkinWaves.readthedocs.io/en/latest/contributi
 
 ## License
 
-All content except some images of TzolkinWaves is licensed under the MIT license, see file [LICENSE](https://github.com/Release-Candidate/TzolkinWaves/blob/main/LICENSE).
+All content of TzolkinWaves is licensed under the MIT license, see file [LICENSE](https://github.com/Release-Candidate/TzolkinWaves/blob/main/LICENSE).
 
 ## Privacy Policy
 

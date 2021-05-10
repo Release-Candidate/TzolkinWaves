@@ -51,10 +51,10 @@ let testProjs = !! "tests/**/*.*proj"
 let coverageProjs = testProjs
 
 // projects to generate Nuget packages of
-let packageProjs = !! "src/**/*.*proj"
+let packageProjs = []
 
 // projects to publish (`dotnet publish`)
-let publishProjs = !! "tests/**/*.*proj"
+let publishProjs = !! "src/**/*.*proj" //++ "tests/**/*.*proj"
 
 // projects that should be linted
 let lintProjs =

@@ -2,6 +2,11 @@
 **/bin
 **/obj
 **/.vs
+*.fsproj.user
+*.pubxml.user
+
+# Dotnet version configuration
+global.json
 
 # PyPI lock file
 Pipfile.lock
