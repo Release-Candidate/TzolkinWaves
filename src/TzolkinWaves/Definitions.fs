@@ -191,9 +191,3 @@ module Definitions=
 
     /// Get a `ImageBrush` of a PNG from a Tzolk’in day number.
     let getPNGBrushNumber = getPNGBrush getStreamTNumber tzolkinImageHeight AlignmentX.Right
-
-    /// The list of all Tzolk’in day glyph PNG images as `ImageBrush`.
-    let cacheGlyphs = [ for i in [1 .. 20] -> getPNGBrushGlyph <| TzolkinGlyph.T.TzolkinGlyph i ]
-
-    /// The list of all Tzolk’in day number PNG images as `ImageBrush`.
-    let cacheNumbers = [ for i in [1 .. 13] -> getPNGBrushNumber <| TzolkinNumber.T.TzolkinNumber i ]

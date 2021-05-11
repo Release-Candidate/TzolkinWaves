@@ -131,17 +131,9 @@ module NineWaveWidgets=
             )
         ]
 
-    /// <summary>Draw text with a brown (transparent ;) background, try to keep
-    ///  the whole text on screen.</summary>
-    /// <param name="args">`SKPaintSurfaceEventArgs` used for the available
-    /// width and height.</param>
-    /// <param name="x">X coordinate to draw the text to (lower left corner).</param>
-    /// <param name="y">Y coordinate to draw the text to (lower left corner).</param>
-    /// <param name="text">The text to draw.</param>
-    /// <param name="canvas">`SKCanvas` to use to paint.</param>
-    /// <param name="painter">`SKPaint`to use to paint the text with.</param>
-    /// <param name="painterBackground">`SKPaint`to use to paint the text's
-    /// background with.</param>
+    /// Calculate a list of points and strings to put text at.
+    /// The points are the minimum and maximum points of the graph and the
+    /// function values of 0.
     let drawText
         unitWidth
         unitHeight
@@ -187,7 +179,8 @@ module NineWaveWidgets=
         |> List.filter (fun (e, _) -> -20. <= e && e <= 20.)
         |> List.map getTextPoint
 
-
+    /// Return the list of 'special points', that is maximum and minum values
+    /// of the  function and 0.
     let getSpecialPoints
         (getWaveDay : DateTime -> NineWaves.WaveDay)
         model
@@ -204,9 +197,10 @@ module NineWaveWidgets=
 
         let dayQuotient = Math.Floor (float currDay / float numDays)
 
-        [ for idx in dayQuotient - 1.5 .. 0.5 .. dayQuotient + 1.5 -> getSpecialPoints idx, idx ]
-        |> List.filter (fun (e, _) -> -20. <= e && e <= 20.)
+        [ for idx in dayQuotient - 1.5 .. 0.5 .. dayQuotient + 1.5 -> getSpecialPoints idx ]
+        |> List.filter (fun e -> -20. <= e && e <= 20.)
 
+    /// Draw a dot on the graph of the function at the given X coordinate.
     let drawWaveDot
         unitWidth
         unitHeight
@@ -247,13 +241,6 @@ module NineWaveWidgets=
 
     /// Draw the graph of a wave, including dots at the changes of night and day
     /// and the highest and lowest points of the days and nights.
-    /// <param name="unitWidth">Factor to scale all x values with.</param>
-    /// <param name="unitHeight">Factor to scale all y values with.</param>
-    /// <param name="getWaveDay">The `WaveDay` function to use to get data about
-    /// the wave</param>
-    /// <param name="waveFunc">The sine function of the wave to use.</param>
-    /// <param name="model">The MVU model.</param>
-    /// <param name="starty">The y offset of the x axis to use.</param>
     let drawWave
         unitWidth
         unitHeight
@@ -287,6 +274,7 @@ module NineWaveWidgets=
             Polyline.strokeThickness graphThickness
         ]
 
+    /// Draw one x axis of the graphs.
     let drawXAxis unitWidth unitHeight y =
         Line.create [
             Line.startPoint (0., y * unitHeight)
@@ -295,6 +283,7 @@ module NineWaveWidgets=
             Line.strokeThickness axisThickness
         ]
 
+    /// Draw graphs of the 9th, the 8th and the 7th wave.
     let nineWavesGraph model dispatch =
         Canvas.create [
             Canvas.background backgroundBrown
@@ -320,13 +309,13 @@ module NineWaveWidgets=
                 drawWave unitWidth unitHeight NineWaves.getWaveday8 NineWaves.wavefunc8 model 4.5
                 drawWave unitWidth unitHeight NineWaves.getWaveday7 NineWaves.wavefunc7 model 7.5
 
-                for (x, _) in getSpecialPoints NineWaves.getWaveday9 model do
+                for x in getSpecialPoints NineWaves.getWaveday9 model do
                     drawWaveDot unitWidth unitHeight NineWaves.getWaveday9 NineWaves.wavefunc9 model 1.5 accentDarkRed backgroundBrown x
 
-                for (x, _) in getSpecialPoints NineWaves.getWaveday8 model do
+                for x in getSpecialPoints NineWaves.getWaveday8 model do
                     drawWaveDot unitWidth unitHeight NineWaves.getWaveday8 NineWaves.wavefunc8 model 4.5 accentDarkRed backgroundBrown x
 
-                for (x, _) in getSpecialPoints NineWaves.getWaveday7 model do
+                for x in getSpecialPoints NineWaves.getWaveday7 model do
                     drawWaveDot unitWidth unitHeight NineWaves.getWaveday7 NineWaves.wavefunc7 model 7.5 accentDarkRed backgroundBrown x
 
                 drawWaveDot unitWidth unitHeight NineWaves.getWaveday9 NineWaves.wavefunc9 model 1.5 foregroundLight backgroundBrown 0.
