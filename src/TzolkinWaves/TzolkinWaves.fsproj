@@ -5,16 +5,60 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Counter.fs" />
-    <Compile Include="About.fs" />
-    <Compile Include="Shell.fs" />
+    <Compile Include="Definitions.fs" />
+    <Compile Include="Update.fs" />
+    <Compile Include="TzolkinWidgets.fs" />
+    <Compile Include="MoonWidgets.fs" />
+    <Compile Include="NineWaveWidgets.fs" />
+    <Compile Include="View.fs" />
     <Compile Include="Program.fs" />
-  </ItemGroup>
-  <ItemGroup>
+    <AvaloniaResource Include="Resources\glyph_01.svg" />
+    <AvaloniaResource Include="Resources\glyph_02.svg" />
+    <AvaloniaResource Include="Resources\glyph_03.svg" />
+    <AvaloniaResource Include="Resources\glyph_04.svg" />
+    <AvaloniaResource Include="Resources\glyph_05.svg" />
+    <AvaloniaResource Include="Resources\glyph_06.svg" />
+    <AvaloniaResource Include="Resources\glyph_07.svg" />
+    <AvaloniaResource Include="Resources\glyph_08.svg" />
+    <AvaloniaResource Include="Resources\glyph_09.svg" />
+    <AvaloniaResource Include="Resources\glyph_10.svg" />
+    <AvaloniaResource Include="Resources\glyph_11.svg" />
+    <AvaloniaResource Include="Resources\glyph_12.svg" />
+    <AvaloniaResource Include="Resources\glyph_13.svg" />
+    <AvaloniaResource Include="Resources\glyph_14.svg" />
+    <AvaloniaResource Include="Resources\glyph_15.svg" />
+    <AvaloniaResource Include="Resources\glyph_16.svg" />
+    <AvaloniaResource Include="Resources\glyph_17.svg" />
+    <AvaloniaResource Include="Resources\glyph_18.svg" />
+    <AvaloniaResource Include="Resources\glyph_19.svg" />
+    <AvaloniaResource Include="Resources\glyph_20.svg" />
+    <AvaloniaResource Include="Resources\icon.svg" />
+    <AvaloniaResource Include="Resources\number_01.svg" />
+    <AvaloniaResource Include="Resources\number_02.svg" />
+    <AvaloniaResource Include="Resources\number_03.svg" />
+    <AvaloniaResource Include="Resources\number_04.svg" />
+    <AvaloniaResource Include="Resources\number_05.svg" />
+    <AvaloniaResource Include="Resources\number_06.svg" />
+    <AvaloniaResource Include="Resources\number_07.svg" />
+    <AvaloniaResource Include="Resources\number_08.svg" />
+    <AvaloniaResource Include="Resources\number_09.svg" />
+    <AvaloniaResource Include="Resources\number_10.svg" />
+    <AvaloniaResource Include="Resources\number_11.svg" />
+    <AvaloniaResource Include="Resources\number_12.svg" />
+    <AvaloniaResource Include="Resources\number_13.svg" />
+    <AvaloniaResource Include="Resources\number_14.svg" />
+    <AvaloniaResource Include="Resources\number_15.svg" />
+    <AvaloniaResource Include="Resources\number_16.svg" />
+    <AvaloniaResource Include="Resources\number_17.svg" />
+    <AvaloniaResource Include="Resources\number_18.svg" />
+    <AvaloniaResource Include="Resources\number_19.svg" />
+    <AvaloniaResource Include="Resources\number_20.svg" />
     <AvaloniaResource Include="Resources\*.xaml" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Remove=".template.config\**" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

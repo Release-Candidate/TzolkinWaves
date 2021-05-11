@@ -12,30 +12,36 @@ namespace TzolkinWaves
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.FuncUI
+open Avalonia.Logging
 
-/// This is your application you can use the initialize method to load styles
-/// or handle Life Cycle events of your application
+/// The application's main class.
 type App() =
-    inherit Application()
+    inherit Application ()
 
-    override this.Initialize() =
+    override this.Initialize () =
         this.Styles.Load "avares://Avalonia.Themes.Fluent/FluentLight.xaml"
         this.Styles.Load "avares://Avalonia.Themes.Fluent/Accents/FluentBaseLight.xaml"
         //this.Styles.Load "avares://Avalonia.Themes.Fluent/FluentDark.xaml"
         //this.Styles.Load "avares://Avalonia.Themes.Fluent/Accents/FluentBaseDark.xaml"
         this.Styles.Load "avares://TzolkinWaves/Resources/Styles.xaml"
 
-    override this.OnFrameworkInitializationCompleted() =
+    override this.OnFrameworkInitializationCompleted () =
         match this.ApplicationLifetime with
         | :? IClassicDesktopStyleApplicationLifetime as desktopLifetime ->
-            desktopLifetime.MainWindow <- Shell.MainWindow()
+            desktopLifetime.MainWindow <- View.MainWindow ()
         | _ -> ()
 
+/// Holds the main entry point of the program, `main`.
 module Program =
 
     [<EntryPoint>]
-    let main (args: string []) =
-        AppBuilder.Configure<App>()
+    let main args =
+        AppBuilder
+            .Configure<App>()
             .UsePlatformDetect()
             .UseSkia()
-            .StartWithClassicDesktopLifetime(args)
+#if DEBUG
+            .LogToTrace(level=LogEventLevel.Debug, areas=[|LogArea.Property; LogArea.Layout|])
+#endif
+            .StartWithClassicDesktopLifetime(args=args)
+

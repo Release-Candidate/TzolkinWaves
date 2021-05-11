@@ -1,4 +1,4 @@
-<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Styles xmlns="https://github.com/avaloniaui" xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Avalonia.Svg.Skia" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style Selector="Button /template/ ContentPresenter">
         <Setter Property="CornerRadius" Value="5" />
@@ -22,8 +22,18 @@
         <Setter Property="BorderBrush" Value="#e74c3c" />
     </Style>
 
+    <Style Selector="Button.icon /template/ ContentPresenter">
+        <Setter Property="BorderBrush" Value="#e74c3c" />
+    </Style>
+    <Style Selector="Button.icon:pointerover /template/ ContentPresenter">
+        <Setter Property="BorderBrush" Value="#ffffff" />
+    </Style>
+    <Style Selector="Button.icon:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="#55822a20" />
+    </Style>
+
     <Style Selector="Button.minus:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#a33225" />
+        <Setter Property="Background" Value="#55a33225" />
     </Style>
 
     <Style Selector="Button.minus:pressed /template/ ContentPresenter">
@@ -48,3 +58,4 @@
         <Setter Property="Foreground" Value="White" />
     </Style>
 </Styles>
+

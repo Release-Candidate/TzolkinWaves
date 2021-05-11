@@ -7,6 +7,68 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "TzolkinWaves", "src\Tzolkin
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "TestTzolkinWaves", "tests\TestTzolkinWaves\TestTzolkinWaves.fsproj", "{B7CE08B9-79CF-49D9-844C-BE010615B2CB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{6712C942-9DC6-4AB9-AB56-00FB55A291EF}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\create_packages.yml = .github\workflows\create_packages.yml
+		.github\workflows\linux_test.yml = .github\workflows\linux_test.yml
+		.github\workflows\osx_test.yml = .github\workflows\osx_test.yml
+		.github\workflows\windows_test.yml = .github\workflows\windows_test.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{EDDC6613-AF5A-40FD-BAA4-6ED301EACBD9}"
+	ProjectSection(SolutionItems) = preProject
+		docs\contributing.md = docs\contributing.md
+		docs\index.md = docs\index.md
+		docs\license.md = docs\license.md
+		docs\requirements.txt = docs\requirements.txt
+		docs\usage.md = docs\usage.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{597A40CA-0CB3-414B-999A-D27D8B90A25C}"
+	ProjectSection(SolutionItems) = preProject
+		docs\images\nuget_icon.png = docs\images\nuget_icon.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "issue_templates", "issue_templates", "{5D1B60FC-6CCB-466D-AA39-50C4448E6B9D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\ISSUE_TEMPLATE\bug_report.md = .github\ISSUE_TEMPLATE\bug_report.md
+		.github\ISSUE_TEMPLATE\feature_request.md = .github\ISSUE_TEMPLATE\feature_request.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{6BBA4E47-63F8-48A7-ACA9-058B30B17648}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\get_changelog.sh = scripts\get_changelog.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{79D186FD-FAED-498F-9D19-2ABED2880B6C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.readthedocs.yaml = .readthedocs.yaml
+		build.fsx = build.fsx
+		build.fsx.lock = build.fsx.lock
+		CHANGELOG.md = CHANGELOG.md
+		codecov.yml = codecov.yml
+		global.json = global.json
+		icon.svg = icon.svg
+		LICENSE = LICENSE
+		mkdocs.yml = mkdocs.yml
+		nuget_icon.png = nuget_icon.png
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+		Pipfile = Pipfile
+		Pipfile.lock = Pipfile.lock
+		postBuild = postBuild
+		privacy_policy.md = privacy_policy.md
+		README.md = README.md
+		run_coverage.bat = run_coverage.bat
+		run_coverage.sh = run_coverage.sh
+		run_sharplint.bat = run_sharplint.bat
+		run_sharplint.sh = run_sharplint.sh
+		run_tests.bat = run_tests.bat
+		run_tests.sh = run_tests.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +86,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{597A40CA-0CB3-414B-999A-D27D8B90A25C} = {EDDC6613-AF5A-40FD-BAA4-6ED301EACBD9}
+		{5D1B60FC-6CCB-466D-AA39-50C4448E6B9D} = {6712C942-9DC6-4AB9-AB56-00FB55A291EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A02AAB7-BAE1-406B-A9F0-68B607C0C175}
