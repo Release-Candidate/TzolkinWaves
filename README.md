@@ -8,6 +8,10 @@ Uses [Avalonia FuncUI](https://github.com/fsprojects/Avalonia.FuncUI) as MVU (El
 
 Uses the NuGet packages [Tzolkin](https://github.com/Release-Candidate/Tzolkin) - [NuGet Package Tzolkin](https://www.nuget.org/packages/Tzolkin/), [NineWaves](https://github.com/Release-Candidate/NineWaves) - [NuGet Package NineWaves](https://www.nuget.org/packages/NineWaves/) and [LunaZodiaco](https://github.com/Release-Candidate/LunaZodiaco) - [NuGet Package LunaZodiaco](https://www.nuget.org/packages/LunaZodiaco/).
 
+![Screenshot Linux](./docs/images/Screenshot-Linux.png)
+![Screenshot OS X](./docs/images/Screenshot-OSX.png)
+![Screenshot Windows](./docs/images/Screenshot-Windows.png)
+
 ![MIT license badge](https://img.shields.io/badge/license-MIT-brightgreen?style=flat)
 [![F# 5.0 badge](https://img.shields.io/badge/F%23-5.0-brightgreen?style=flat)](https://fsharp.org/)
 [![OS badge](https://img.shields.io/badge/Runs%20on-Linux%7COS%20X%7CWindows-brightgreen?style=flat)](https://dotnet.microsoft.com/download)
@@ -53,7 +57,7 @@ List of changes: [CHANGELOG.md](https://github.com/Release-Candidate/TzolkinWave
 
 ## Installation and Usage
 
-Download the latest release: [Release at GitHub](https://github.com/Release-Candidate/TzolkinWaves/releases/latest)
+Download the latest release for your OS: [Release at GitHub](https://github.com/Release-Candidate/TzolkinWaves/releases/latest), copy the executable somewhere on your computer and run it.
 
 ## Contributing
 

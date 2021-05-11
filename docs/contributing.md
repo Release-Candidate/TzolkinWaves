@@ -15,11 +15,9 @@ If you encounter a problem using TzolkinWaves, a task it not as easy as you'd li
       - [Read the Docs Configuration](#read-the-docs-configuration)
       - [GitHub Documentation](#github-documentation)
   - [Source Code](#source-code)
-    - [Source Code and Tests](#source-code-and-tests)
+    - [Source Code](#source-code-1)
       - [Source](#source)
-      - [Test Source](#test-source)
     - [Build Targets](#build-targets)
-  - [CodeCov Configuration](#codecov-configuration)
   - [GitHub Workflows](#github-workflows)
   - [GitHub Issue Template](#github-issue-template)
 
@@ -190,22 +188,15 @@ Now you're ready to download and install the needed packages using pipenv
 pipenv install --dev
 ```
 
-### Source Code and Tests
+### Source Code
 
-The sources of the projects are located in the directors `src`, the tests in `tests`.
+The sources of the projects are located in the directors `src`.
 
 #### Source
 
 There is 1 project in `TzolkinWaves/src`:
 
 - `TzolkinWaves` - the TzolkinWaves program, the GUI.
-
-#### Test Source
-
-The project `TestTzolkinWaves` in the directory `tests/TestTzolkinWaves`: tests the program.
-Files:
-
-- `TestMain.fs` - Expecto's main entry point when called as an executable and not by using `dotnet test`.
 
 ### Build Targets
 
@@ -320,34 +311,6 @@ Run the tests with coverage analysis - result is in the directory `test_results`
 
 ```shell
 dotnet fake run build.fsx target TestsCoverage
-```
-
-## CodeCov Configuration
-
-Generate an account at [CodeCov](https://about.codecov.io/), link your GitHub repositories, add the CodeCov token
-as a secret to the GitHub repositories named `CODECOV_SECRET` and upload the coverage result
-using a GitHub action. Used in the workflows [linux_test.yml](https://github.com/Release-Candidate/TzolkinWaves/blob/main/.github/workflows/linux_test.yml),
-[osx_test.yml](https://github.com/Release-Candidate/TzolkinWaves/blob/main/.github/workflows/osx_test.yml) and [windows_test.yml](https://github.com/Release-Candidate/TzolkinWaves/blob/main/.github/workflows/windows_test.yml)
-
-```yml
-      - name: Run Tests
-        run: |
-          cd $GITHUB_WORKSPACE
-          dotnet fake run ./build.fsx target TestsCoverage
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        if: ${{ always() }}
-        with:
-          token: ${{ secrets.CODECOV_SECRET }}
-          files: ./test_results/coverage.xml
-          directory: ./coverage/reports/
-          # flags: unittest
-          env_vars: OS,PYTHON
-          name: Linux-Test-Src
-          fail_ci_if_error: false
-          path_to_write_report: ./coverage/codecov_report.txt
-          verbose: true
 ```
 
 ## GitHub Workflows

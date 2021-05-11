@@ -10,6 +10,10 @@ If you want to know more about the used programming language and libraries, see 
 filing bug reports or feature requests, to contributing source code, to adding documentation
 or translations or any other way you can help LunaZodiaco.
 
+![Screenshot Linux](./images/Screenshot-Linux.png)
+![Screenshot OS X](./images/Screenshot-OSX.png)
+![Screenshot Windows](./images/Screenshot-Windows.png)
+
 ## Links
 
 (Functional) programming language: [F#](https://fsharp.org/)

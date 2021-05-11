@@ -24,7 +24,6 @@ module MoonWidgets=
         TextBlock.create [
             TextBlock.row row
             TextBlock.column column
-            TextBlock.horizontalAlignment HorizontalAlignment.Stretch
             TextBlock.textAlignment TextAlignment.Center
             TextBlock.fontSize moonSymbolSize
             TextBlock.classes [ "MoonSymbol" ]

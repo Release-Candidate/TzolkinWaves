@@ -131,6 +131,8 @@ module NineWaveWidgets=
             )
         ]
 
+    // TODO refactor these functions, they are way to messy!
+
     /// Calculate a list of points and strings to put text at.
     /// The points are the minimum and maximum points of the graph and the
     /// function values of 0.
