@@ -1,4 +1,4 @@
-# ![LunaZodiaco Logo](./images/nuget_icon.png) LunaZodiaco
+# ![TzolkinWaves Logo](./images/nuget_icon.png) TzolkinWaves
 
 This F# cross platform - Linux, Mac OS X and Windows - program that uses Avalonia.FuncUI as the MVU (Elm style) API wrapper for the Avalonia .Net GUI Toolkit. It uses the NuGet packages Tzolkin, NineWaves and LunaZodiaco to display the Maya Tzolkʼin date, Calleman's nine Maya waves and the moon phase and moon zodiac of a given date.
 

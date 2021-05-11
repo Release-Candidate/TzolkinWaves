@@ -12,19 +12,10 @@ namespace TzolkinWaves
 /// Contains widgets to display data and images of Tzolk’in dates.
 [<AutoOpen>]
 module TzolkinWidgets=
-
-    open System
-    open Elmish
-    open Avalonia
     open Avalonia.Layout
     open Avalonia.Media
     open Avalonia.Controls
-    open Avalonia.Input
     open Avalonia.FuncUI.DSL
-    open Avalonia.FuncUI
-    open Avalonia.FuncUI.Builder
-    open Avalonia.FuncUI.Components.Hosts
-    open Avalonia.FuncUI.Elmish
 
     open RC.Maya
 
@@ -40,7 +31,7 @@ module TzolkinWidgets=
         let tzolkin = TzolkinDate.fromDate model.Date
         Border.create [
             Border.borderThickness 1.
-            Border.padding (10., 10., 10., 10.)
+            Border.padding (10., 0., 10., 0.)
             Border.horizontalAlignment HorizontalAlignment.Center
             Border.verticalAlignment VerticalAlignment.Top
             Border.child (

@@ -28,7 +28,7 @@ module Definitions=
     let globalWidth = 1300.
 
     /// height of the main window.
-    let globalHeight = 800.
+    let globalHeight = 680.
 
     let backgroundBrownDark = "#BFAB91"
 
@@ -51,10 +51,10 @@ module Definitions=
     // Tzolk’in date display =======================================================================
 
     /// The height of the Tzolk’in day number and glyph.
-    let tzolkinImageHeight = 100.f
+    let tzolkinImageHeight = 56.f
 
     /// The font size of the Tzolk’in day number and glyph strings.
-    let tzolkinFontSize = 18.
+    let tzolkinFontSize = 14.
 
     /// The font style of the Tzolk’in day number and glyph strings.
     let tzolkinFontStyle = FontStyle.Oblique
@@ -89,7 +89,7 @@ module Definitions=
 
     let graphCanvasWidth = 395.
 
-    let graphCanvasHeight = 750.
+    let graphCanvasHeight = 650.
 
     let dotCirceRadius = 7.5
 
@@ -160,7 +160,7 @@ module Definitions=
 
     /// Convert a SVG given by its resource stream `stream` to a PNG with the
     /// given height `height`.
-    let bitmapFromSVGStream height (stream: IO.Stream) =
+    let bitmapFromSVGStream height alignment (stream: IO.Stream) =
         let svg = new SKSvg ()
         let svgPicture = svg.Load (stream)
         let scaleFac = height / svgPicture.CullRect.Height
@@ -173,22 +173,24 @@ module Definitions=
         let image =  SkiaSharp.SKImage.FromBitmap (bitmap)
         let data = image.Encode(SkiaSharp.SKEncodedImageFormat.Png, 100)
         let stream = data.AsStream (true)
-        ImageBrush (new Bitmap (stream))
+        let brush = ImageBrush (new Bitmap (stream))
+        brush.AlignmentX <- alignment
+        brush
 
     /// Generic function to get an `ImageBrush` from a resource.
-    let inline private getPNGBrush streamFunc height instance =
+    let inline private getPNGBrush streamFunc height alignment instance =
         streamFunc instance
-        |> bitmapFromSVGStream height
+        |> bitmapFromSVGStream height alignment
 
     /// Get an `ImageBrush` of a SVG converted to PNG with the given height and
     /// the name of the SVG without the suffix (.svg).
     let getPNGBrushSVG = getPNGBrush getStreamSVG
 
     /// Get a `ImageBrush` of a PNG from a Tzolk’in day glyph.
-    let getPNGBrushGlyph = getPNGBrush getStreamTGlyph tzolkinImageHeight
+    let getPNGBrushGlyph = getPNGBrush getStreamTGlyph tzolkinImageHeight AlignmentX.Left
 
     /// Get a `ImageBrush` of a PNG from a Tzolk’in day number.
-    let getPNGBrushNumber = getPNGBrush getStreamTNumber tzolkinImageHeight
+    let getPNGBrushNumber = getPNGBrush getStreamTNumber tzolkinImageHeight AlignmentX.Right
 
     /// The list of all Tzolk’in day glyph PNG images as `ImageBrush`.
     let cacheGlyphs = [ for i in [1 .. 20] -> getPNGBrushGlyph <| TzolkinGlyph.T.TzolkinGlyph i ]

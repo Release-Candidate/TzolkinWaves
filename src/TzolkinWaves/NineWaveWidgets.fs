@@ -12,10 +12,8 @@ namespace TzolkinWaves
 open System
 open Avalonia
 open Avalonia.FuncUI.DSL
-open Avalonia.FuncUI
 open Avalonia.Layout
 open Avalonia.Media
-open Avalonia.Controls
 open Avalonia.Controls
 open Avalonia.Controls.Shapes
 
@@ -52,7 +50,7 @@ module NineWaveWidgets=
             TextBlock.fontStyle wavesFontStyle
             TextBlock.fontWeight wavesFontWeight
             TextBlock.classes [ "NineWaveTitle" ]
-            TextBlock.text (sprintf "onda %i (%i.): " wave waveDay.WaveNumber)
+            TextBlock.text (sprintf "Onda %i (%i.): " wave waveDay.WaveNumber)
         ]
 
     /// Display a line of a nine waves description.
@@ -188,7 +186,6 @@ module NineWaveWidgets=
         [ for idx in dayQuotient - 1.5 .. 0.5 .. dayQuotient + 1.5 -> getSpecialPoints idx, idx ]
         |> List.filter (fun (e, _) -> -20. <= e && e <= 20.)
         |> List.map getTextPoint
-
 
 
     let getSpecialPoints

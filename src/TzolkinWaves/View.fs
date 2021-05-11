@@ -13,15 +13,11 @@ namespace TzolkinWaves
 [<AutoOpen>]
 module View =
 
-    open System
     open Elmish
-    open Avalonia
     open Avalonia.Layout
     open Avalonia.Controls
-    open Avalonia.Input
     open Avalonia.FuncUI.DSL
     open Avalonia.FuncUI
-    open Avalonia.FuncUI.Builder
     open Avalonia.FuncUI.Components.Hosts
     open Avalonia.FuncUI.Elmish
 
@@ -96,7 +92,6 @@ module View =
                     StackPanel.margin 5.0
                     StackPanel.spacing 5.0
                     StackPanel.children [
-                       // moonView model dispatch
                         nineWaveInfo model dispatch
                     ]
                 ]
@@ -114,6 +109,8 @@ module View =
             base.MinWidth <- globalWidth
             base.MinHeight <- globalHeight
             base.Icon <- WindowIcon (getStreamPath "icon.ico")
+            base.WindowStartupLocation <- WindowStartupLocation.CenterScreen
+            base.WindowState <- WindowState.Maximized
 #if DEBUG
             this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
             this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
