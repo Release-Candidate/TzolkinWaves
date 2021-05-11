@@ -65,7 +65,7 @@ module Definitions=
     // Moon display ================================================================================
 
     /// The size of the moon symbols.
-    let moonSymbolHeight = 175.
+    let moonSymbolHeight = 140.
 
     /// The size of the moon symbol font.
     let moonSymbolSize = 100.

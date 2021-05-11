@@ -1,8 +1,0 @@
-group Tests
-	FSharp.Core
-	AltCover
-	Expecto
-	Expecto.FsCheck	
-	Unquote
-	YoloDev.Expecto.TestSdk
-	Microsoft.NET.Test.Sdk

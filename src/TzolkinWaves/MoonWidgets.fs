@@ -24,6 +24,7 @@ module MoonWidgets=
         TextBlock.create [
             TextBlock.row row
             TextBlock.column column
+            TextBlock.horizontalAlignment HorizontalAlignment.Stretch
             TextBlock.textAlignment TextAlignment.Center
             TextBlock.fontSize moonSymbolSize
             TextBlock.classes [ "MoonSymbol" ]
@@ -36,12 +37,13 @@ module MoonWidgets=
 
     let moonZodiacSymbol zodiac =
         Zodiac.toUnicode zodiac
-        |> moonSymbol 0  1
+        |> moonSymbol 2  0
 
     let moonString row column string =
         TextBlock.create [
             TextBlock.row row
             TextBlock.column column
+            TextBlock.horizontalAlignment HorizontalAlignment.Stretch
             TextBlock.textAlignment TextAlignment.Center
             TextBlock.foreground foregroundLight
             TextBlock.fontSize moonFontSize
@@ -57,7 +59,7 @@ module MoonWidgets=
 
     let moonZodiacString zodiac =
         Zodiac.toString zodiac
-        |> moonString 1 1
+        |> moonString 3 0
 
     /// Display the moon phase and moon zodiac of the current date.
     ///
@@ -71,15 +73,17 @@ module MoonWidgets=
         let { LunaZodiaco.MoonDay.Zodiac = zodiac
               LunaZodiaco.MoonDay.Phase = phase } = LunaZodiaco.getMoonDay model.Date
         Border.create [
-            Border.borderThickness 1.
-            Border.padding (10., 10., 10., 10.)
-            Border.horizontalAlignment HorizontalAlignment.Left
+            Border.borderThickness 2.
+            Border.borderBrush backgroundBrownDark
+            Border.padding (10., 10., 10., 0.)
+            Border.width 200.
+            Border.horizontalAlignment HorizontalAlignment.Center
             Border.verticalAlignment VerticalAlignment.Top
             Border.child (
                 Grid.create [
-                    StackPanel.dock Dock.Left
-                    Grid.columnDefinitions (sprintf "%f, %f" moonSymbolHeight moonSymbolHeight)
-                    Grid.rowDefinitions (sprintf "%f, 20." moonSymbolHeight)
+                    Grid.horizontalAlignment HorizontalAlignment.Center
+                    Grid.columnDefinitions ("*")
+                    Grid.rowDefinitions (sprintf "%f, 20., %f, 20." moonSymbolHeight moonSymbolHeight)
                     Grid.children [
                         moonPhaseSymbol phase
                         moonPhaseString phase

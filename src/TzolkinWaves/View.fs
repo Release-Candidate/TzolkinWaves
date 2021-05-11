@@ -38,6 +38,7 @@ module View =
             Calendar.verticalAlignment VerticalAlignment.Top
             Calendar.horizontalAlignment HorizontalAlignment.Center
             Calendar.displayDate model.Date
+            Calendar.classes [ "MainCalendar" ]
             Calendar.background backgroundBrownLight
             Calendar.onSelectedDateChanged (fun args ->
                 match args.HasValue with
@@ -63,7 +64,17 @@ module View =
                     StackPanel.margin 5.0
                     StackPanel.spacing 5.0
                     StackPanel.children [
-                        calendarView model dispatch
+                        StackPanel.create [
+                            StackPanel.dock Dock.Left
+                            StackPanel.horizontalAlignment HorizontalAlignment.Center
+                            StackPanel.orientation Orientation.Horizontal
+                            StackPanel.margin 5.0
+                            StackPanel.spacing 5.0
+                            StackPanel.children [
+                                calendarView model dispatch
+                                moonView model dispatch
+                            ]
+                        ]
                         Border.create [
                             Border.borderBrush backgroundBrownDark
                             Border.borderThickness 2.
@@ -85,7 +96,7 @@ module View =
                     StackPanel.margin 5.0
                     StackPanel.spacing 5.0
                     StackPanel.children [
-                        moonView model dispatch
+                       // moonView model dispatch
                         nineWaveInfo model dispatch
                     ]
                 ]
@@ -102,6 +113,7 @@ module View =
             base.Height <- globalHeight
             base.MinWidth <- globalWidth
             base.MinHeight <- globalHeight
+            base.Icon <- WindowIcon (getStreamPath "icon.ico")
 #if DEBUG
             this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
             this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true

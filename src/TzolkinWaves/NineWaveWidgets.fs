@@ -97,9 +97,10 @@ module NineWaveWidgets=
         let waveDay2 = NineWaves.getWaveday2 model.Date
         let waveDay1 = NineWaves.getWaveday1 model.Date
         Border.create [
-            Border.borderThickness 1.
+            Border.borderThickness 2.
+            Border.borderBrush backgroundBrownDark
             Border.padding (10., 10., 10., 10.)
-            Border.horizontalAlignment HorizontalAlignment.Right
+            Border.horizontalAlignment HorizontalAlignment.Center
             Border.verticalAlignment VerticalAlignment.Top
             Border.child (
                 StackPanel.create [

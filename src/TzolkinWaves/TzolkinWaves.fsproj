@@ -12,6 +12,7 @@
     <Compile Include="NineWaveWidgets.fs" />
     <Compile Include="View.fs" />
     <Compile Include="Program.fs" />
+    <AvaloniaResource Include="Resources\icon.ico" />
     <AvaloniaResource Include="Resources\glyph_01.svg" />
     <AvaloniaResource Include="Resources\glyph_02.svg" />
     <AvaloniaResource Include="Resources\glyph_03.svg" />
@@ -55,7 +56,6 @@
     <AvaloniaResource Include="Resources\number_20.svg" />
     <AvaloniaResource Include="Resources\*.xaml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Remove=".template.config\**" />
   </ItemGroup>
