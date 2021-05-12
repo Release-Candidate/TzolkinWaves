@@ -8,9 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{6712C942-9DC6-4AB9-AB56-00FB55A291EF}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\create_packages.yml = .github\workflows\create_packages.yml
-		.github\workflows\linux_test.yml = .github\workflows\linux_test.yml
-		.github\workflows\osx_test.yml = .github\workflows\osx_test.yml
-		.github\workflows\windows_test.yml = .github\workflows\windows_test.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{EDDC6613-AF5A-40FD-BAA4-6ED301EACBD9}"

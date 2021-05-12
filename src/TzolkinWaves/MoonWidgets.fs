@@ -25,7 +25,10 @@ module MoonWidgets=
         TextBlock.create [
             TextBlock.row row
             TextBlock.column column
-            TextBlock.textAlignment (if RuntimeInformation.IsOSPlatform OSPlatform.OSX then TextAlignment.Left else TextAlignment.Center)
+            TextBlock.textAlignment (if RuntimeInformation.IsOSPlatform OSPlatform.OSX then
+                                        TextAlignment.Left
+                                     else
+                                        TextAlignment.Center)
             TextBlock.fontSize moonSymbolSize
             TextBlock.classes [ "MoonSymbol" ]
             TextBlock.text (sprintf "%s" string)
