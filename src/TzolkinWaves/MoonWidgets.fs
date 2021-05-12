@@ -13,6 +13,7 @@ namespace TzolkinWaves
 [<AutoOpen>]
 module MoonWidgets=
 
+    open System.Runtime.InteropServices
     open Avalonia.Layout
     open Avalonia.Media
     open Avalonia.Controls
@@ -24,7 +25,7 @@ module MoonWidgets=
         TextBlock.create [
             TextBlock.row row
             TextBlock.column column
-            TextBlock.textAlignment TextAlignment.Center
+            TextBlock.textAlignment (if RuntimeInformation.IsOSPlatform OSPlatform.OSX then TextAlignment.Left else TextAlignment.Center)
             TextBlock.fontSize moonSymbolSize
             TextBlock.classes [ "MoonSymbol" ]
             TextBlock.text (sprintf "%s" string)
