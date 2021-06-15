@@ -16,7 +16,7 @@ Uses the NuGet packages [Tzolkin](https://github.com/Release-Candidate/Tzolkin) 
 [![F# 5.0 badge](https://img.shields.io/badge/F%23-5.0-brightgreen?style=flat)](https://fsharp.org/)
 [![OS badge](https://img.shields.io/badge/Runs%20on-Linux%7COS%20X%7CWindows-brightgreen?style=flat)](https://dotnet.microsoft.com/download)
 [![Documentation Status](https://readthedocs.org/projects/tzolkinwaves/badge/?version=latest)](https://tzolkinwaves.readthedocs.io/en/latest/?badge=latest)
-[more badges ...](#badges)
+
 
 ## Table of Content <!-- omit in toc -->
 
@@ -75,14 +75,3 @@ All content of TzolkinWaves is licensed under the MIT license, see file [LICENSE
 
 TzolkinWaves does not collect or share any personal information, it does not contain any ads, trackers or in-app-payments. See: [Privacy Policy](https://github.com/Release-Candidate/TzolkinWaves/blob/main/privacy_policy.md)
 
-## Badges
-
-### Code coverage
-
-[![codecov](https://codecov.io/gh/Release-Candidate/TzolkinWaves/branch/main/graph/badge.svg?token=T42arcziQt)](https://codecov.io/gh/Release-Candidate/TzolkinWaves)
-
-### GitHub Actions/Workflows
-
-[![Tests Mac OS X latest](https://github.com/Release-Candidate/TzolkinWaves/actions/workflows/osx_test.yml/badge.svg)](https://github.com/Release-Candidate/TzolkinWaves/actions/workflows/osx_test.yml)
-[![Tests Ubuntu 20.04](https://github.com/Release-Candidate/TzolkinWaves/actions/workflows/linux_test.yml/badge.svg)](https://github.com/Release-Candidate/TzolkinWaves/actions/workflows/linux_test.yml)
-[![Tests Windows 2019](https://github.com/Release-Candidate/TzolkinWaves/actions/workflows/windows_test.yml/badge.svg)](https://github.com/Release-Candidate/TzolkinWaves/actions/workflows/windows_test.yml)
