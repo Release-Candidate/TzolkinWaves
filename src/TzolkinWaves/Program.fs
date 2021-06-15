@@ -20,9 +20,9 @@ type App() =
 
     override this.Initialize () =
         this.Styles.Load "avares://Avalonia.Themes.Fluent/FluentLight.xaml"
-        this.Styles.Load "avares://Avalonia.Themes.Fluent/Accents/FluentBaseLight.xaml"
+        this.Styles.Load "avares://Avalonia.Themes.Fluent/Accents/BaseLight.xaml"
         //this.Styles.Load "avares://Avalonia.Themes.Fluent/FluentDark.xaml"
-        //this.Styles.Load "avares://Avalonia.Themes.Fluent/Accents/FluentBaseDark.xaml"
+        //this.Styles.Load "avares://Avalonia.Themes.Fluent/Accents/BaseDark.xaml"
         this.Styles.Load "avares://TzolkinWaves/Resources/Styles.xaml"
 
     override this.OnFrameworkInitializationCompleted () =
