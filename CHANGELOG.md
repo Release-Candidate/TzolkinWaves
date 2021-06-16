@@ -1,5 +1,9 @@
 # TzolkinWaves Changelog
 
+## Version 0.9.4 (2021-06-16)
+
+- Test GitHUb release action
+
 ## Version 0.9.3 (2021-06-15)
 
 - Update used package Tzolkin to 0.9.24
