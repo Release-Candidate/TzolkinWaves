@@ -57,7 +57,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           dotnet fake run ./build.fsx target Publish
-          mv ./bin/TzolkinWaves ./bin/TzolkinWaves-$GIT_TAG_NAME-linux_x64
+          mv ./bin/TzolkinWaves ./bin/TzolkinWaves-${GIT_TAG_NAME}-linux_x64
 
       - name: Generate Changelog
         run: |
@@ -70,7 +70,7 @@ jobs:
         with:
           name: Version ${{ env.GIT_TAG_NAME }}
           body_path: first_changelog.md
-          files: ./bin/TzolkinWaves-$GIT_TAG_NAME-linux_x64
+          files: ./bin/TzolkinWaves-${{ env.GIT_TAG_NAME }}-linux_x64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -111,7 +111,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           dotnet fake run ./build.fsx target Publish
-          mv ./bin/TzolkinWaves ./bin/TzolkinWaves-$GIT_TAG_NAME-OSX_x64
+          mv ./bin/TzolkinWaves ./bin/TzolkinWaves-${GIT_TAG_NAME}-OSX_x64
 
       - name: Generate Changelog
         run: |
@@ -124,7 +124,7 @@ jobs:
         with:
           name: Version ${{ env.GIT_TAG_NAME }}
           body_path: first_changelog.md
-          files: ./bin/TzolkinWaves-$GIT_TAG_NAME-linux_x64
+          files: ./bin/TzolkinWaves-${{ env.GIT_TAG_NAME }}-OSX_x64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -167,13 +167,13 @@ jobs:
         shell: cmd
         run: |
           dotnet fake run .\build.fsx target Publish
-          move .\bin\TzolkinWaves.exe .\bin\TzolkinWaves-$GIT_TAG_NAME-win_x64.exe
+          move .\bin\TzolkinWaves.exe .\bin\TzolkinWaves-win_x64.exe
 
       - name: Release to GitHub
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           name: Version ${{ env.GIT_TAG_NAME }}
-          files: .\bin\TzolkinWaves-$GIT_TAG_NAME-win_x64.exe
+          files: .\bin\TzolkinWaves-win_x64.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

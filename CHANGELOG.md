@@ -1,5 +1,9 @@
 # TzolkinWaves Changelog
 
+## Version 0.9.5 (2021-06-16)
+
+- Correct executable names in actions
+
 ## Version 0.9.4 (2021-06-16)
 
 - Test GitHUb release action
