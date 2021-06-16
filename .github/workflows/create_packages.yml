@@ -6,7 +6,7 @@
 #
 ################################################################################
 
-name: Nuget Packages
+name: Generate Executables
 
 on:
   release:
@@ -20,8 +20,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  package:
-    runs-on: ubuntu-20.04
+  linux-exe:
+    runs-on: ubuntu-latest
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -56,7 +56,8 @@ jobs:
       - name: Build Package
         run: |
           cd $GITHUB_WORKSPACE
-          dotnet fake run ./build.fsx target Packages $GIT_TAG_NAME
+          dotnet fake run ./build.fsx target Publish
+          mv ./bin/TzolkinWaves ./bin/TzolkinWaves-$GIT_TAG_NAME-linux_x64
 
       - name: Generate Changelog
         run: |
@@ -69,28 +70,110 @@ jobs:
         with:
           name: Version ${{ env.GIT_TAG_NAME }}
           body_path: first_changelog.md
-          files: ./nuget/*.nupkg
+          files: ./bin/TzolkinWaves-$GIT_TAG_NAME-linux_x64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      #- name: Release NuGet to GitHub
-      #  uses: svenstaro/upload-release-action@v2
-      #  if: startsWith(github.ref, 'refs/tags/')
-      #  with:
-      #    release_name: Version ${{ env.GIT_TAG_NAME }}
-      #    repo_token: ${{ secrets.GITHUB_TOKEN }}
-      #    tag: ${{ github.ref }}
-      #    file_glob: false
-      #    asset_name: NuGet Package
-      #    file: ./packages/TzolkinWaves.nupkg
+  maccos-exe:
+    runs-on: macos-latest
 
-      - name: Upload
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - name: Setup pipenv
+        run: python -m pip install --upgrade pipenv
+
+      - name: Setup MkDocs
         run: |
           cd $GITHUB_WORKSPACE
-          dotnet nuget push ./nuget/*.nupkg -k ${{ secrets.NUGET_PACKAGE }} -s https://api.nuget.org/v3/index.json
+          python -m pipenv install --dev
 
-      - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
+      - name: Setup Tools
+        run: |
+          dotnet tool restore
+          dotnet paket restore
+
+      - uses: olegtarasov/get-tag@v2.1
+        id: tagName
         with:
-          name: Nuget Packages
-          path: ./nuget/*
+          tagRegex: "v(.*)"
+
+      - name: Build Package
+        run: |
+          cd $GITHUB_WORKSPACE
+          dotnet fake run ./build.fsx target Publish
+          mv ./bin/TzolkinWaves ./bin/TzolkinWaves-$GIT_TAG_NAME-OSX_x64
+
+      - name: Generate Changelog
+        run: |
+          cd $GITHUB_WORKSPACE/scripts
+          ./get_changelog.sh > ../first_changelog.md
+
+      - name: Release to GitHub
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: Version ${{ env.GIT_TAG_NAME }}
+          body_path: first_changelog.md
+          files: ./bin/TzolkinWaves-$GIT_TAG_NAME-linux_x64
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  windows-exe:
+    runs-on: windows-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - name: Setup pipenv
+        shell: cmd
+        run: python -m pip install --upgrade pipenv
+
+      - name: Setup MkDocs
+        shell: cmd
+        run: |
+          python -m pipenv install --dev
+
+      - name: Setup Tools
+        shell: cmd
+        run: |
+          dotnet tool restore
+          dotnet paket restore
+
+      - uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        with:
+          tagRegex: "v(.*)"
+
+      - name: Build Package
+        shell: cmd
+        run: |
+          dotnet fake run .\build.fsx target Publish
+          move .\bin\TzolkinWaves.exe .\bin\TzolkinWaves-$GIT_TAG_NAME-win_x64.exe
+
+      - name: Release to GitHub
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: Version ${{ env.GIT_TAG_NAME }}
+          files: .\bin\TzolkinWaves-$GIT_TAG_NAME-win_x64.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
